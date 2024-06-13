@@ -3,6 +3,7 @@ require('dotenv').config()
 const Hapi = require('@hapi/hapi')
 const routes = require('../server/routes')
 const loadModel = require('../services/loadModel')
+const InputError = require('../exceptions/InputError')
 
 const init = async () => {
   const server = Hapi.server({
