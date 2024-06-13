@@ -25,14 +25,14 @@ const init = async () => {
     const response = request.response
 
     // Penanganan error jika terjadi kesalahan input (Input Error)
-    // if (response instanceof InputError) {
-    //   const newResponse = h.response({
-    //     status: 'fail',
-    //     message: `${response.message} Silakan gunakan foto lain.`
-    //   })
-    //   newResponse.code(response.statusCode)
-    //   return newResponse
-    // }
+    if (response instanceof InputError) {
+      const newResponse = h.response({
+        status: 'fail',
+        message: `${response.message} Silakan gunakan foto lain.`
+      })
+      newResponse.code(response.statusCode)
+      return newResponse
+    }
 
     // Penanganan error jika terjadi kesalahan pada server (Server Error)
     if (response.isBoom) {
